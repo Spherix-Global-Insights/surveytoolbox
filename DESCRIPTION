@@ -1,0 +1,13 @@
+Package: surveytoolbox
+Type: Package
+Title: Tools for cleaning survey data
+Version: 1.4.0
+Author: c(
+    person("Andrew", "Donnachie", email="avdonnachie@gmail.com", role = c("aut", "cre"))
+    )
+Maintainer: Andrew Donnachie <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT License
+Encoding: UTF-8
+LazyData: true
