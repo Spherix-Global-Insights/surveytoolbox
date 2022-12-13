@@ -5,7 +5,7 @@ error_report <- function(dat, variables, bools) {
 
     id_var <<- NULL
   }
-  if(!exists("error_report")) {
+  if(!exists("error_export")) {
 
     error_export <<- TRUE
   }
