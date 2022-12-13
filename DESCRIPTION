@@ -8,6 +8,9 @@ Author: c(
 Maintainer: Andrew Donnachie <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
+Imports:
+      sjlabelled,
+      stringr
 License: MIT License
 Encoding: UTF-8
 LazyData: true
