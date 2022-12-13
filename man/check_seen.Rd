@@ -14,7 +14,7 @@ check_seen(x, ..., condition = "TRUE")
 }
 \details{
 check_seen checks every case within each given variable and determines if a response was provided at the appropriate time based on the condition. If the condition is TRUE but the value is NA, that case is determined to be an error. If the condition is FALSE but the value is not NA, that case is also determined to be an error. Otherwise, that case is not an error.
-
+\n
 This function does not return any arguments, but instead adds to the error_report or prints an error report depending on the set preferences.
 }
 \examples{
