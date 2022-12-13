@@ -1,6 +1,15 @@
 
 error_report <- function(dat, variables, bools) {
 
+  if(!exists("id_var")) { # sets preference variables if they do not already exist
+
+    id_var <<- NULL
+  }
+  if(!exists("error_report")) {
+
+    error_export <<- TRUE
+  }
+
   if(is.na(match(TRUE, bools))) {
 
     cat("Test on", names(variables)[-length(names(variables))], "complete, no errors found. \n")
