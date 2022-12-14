@@ -2,7 +2,7 @@
 # Add a new variable to an existing dataset
 # Returns the new dataset
 
-create_new_var <- function(dat, var_nam, var_lab = "New variable", val_lab = c("No" = 0, "Yes" = 1), def_val = NA) {
+create_new_var <- function(dat, var_nam, var_lab = "New variable", val_lab = NULL, def_val = NA) {
 
   if(exists(var_nam, dat)) { # checks to make sure the variable isn't already in the dataset
 

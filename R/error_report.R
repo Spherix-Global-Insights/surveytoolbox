@@ -42,7 +42,10 @@ error_report <- function(dat, variables, bools) {
       } else {
         error_report_export <<- c(error_report_export, list(errors))
       }
-      names(error_report_export)[length(error_report_export)] <<- paste(names(variables)[-length(variables)], collapse = ", ") # name the sheet for readability
+      names(error_report_export)[length(error_report_export)] <<- paste(names(variables)[-length(variables)], collapse = ".") # name the sheet for readability
+
+      names(error_report_export) <<- make.names(names(error_report_export), unique = TRUE) # fixes any duplicate names (necessary for excel exporting)
+
 
     } else {
 

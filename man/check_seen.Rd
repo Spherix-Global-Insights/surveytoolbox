@@ -5,11 +5,11 @@
 Checks if a survey question was seen based on a given condition.
 }
 \usage{
-check_seen(x, ..., condition = "TRUE")
+check_seen(dat, var_list, condition = "TRUE")
 }
 \arguments{
-  \item{x}{A data frame containing the variable(s) to be checked}
-  \item{...}{A string or vector of strings containing the variable name(s) to be checked}
+  \item{dat}{A data frame containing the variable(s) to be checked}
+  \item{var_list}{A string or vector of strings containing the variable name(s) to be checked}
   \item{condition}{An expression in the form of a string used to determine when the question should have been seen}
 }
 \details{

@@ -14,8 +14,15 @@ eval_expr <- function(dat, expression) {
 
     bools[is.na(bools)] <- FALSE                #fix missing data
 
+    if(length(bools) == 1) {                    #turns single value into full dataframe
+
+      bools <- data.frame(array(bools, nrow(dat)))
+    }
+
     bools <- data.frame(bools)
     colnames(bools) <- paste(expression, "MET?") #preparing readability for error report
+
+
 
   }
 

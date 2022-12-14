@@ -28,7 +28,6 @@ determine_var <- function(dat, var) {
         errors <- val
 
         colnames(val) <- var
-        colnames(errors) <- "TARGET"
       }
 
     } else {                  # Straight numeric value is created into an array of that value
