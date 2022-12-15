@@ -16,6 +16,7 @@ create_new_var(dat, var_nam, var_lab = "New variable", val_lab = NULL, def_val =
 }
 \details{
 create_new_var creates a new variable with an equal number of cases to the given data, populates it with labels and values, and returns the data with it appended to the end. A single value or an expression containing a calculation for multiple values may be given as the default value argument to populate the new variable with values.
+}
 \examples{
 # Creates a new variable with default labels and NA for every case
 create_new_var(tempdat, "my_var")
