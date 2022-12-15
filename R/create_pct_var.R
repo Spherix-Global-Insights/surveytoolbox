@@ -2,7 +2,7 @@
 # Creates percentage versions of numeric variables and adds them to the end of the data
 # If no total is listed, the percentage will be calculated out of the sum of variables
 
-create_percent_var <- function(dat, var_list, total = NULL) {
+create_pct_var <- function(dat, var_list, total = NULL) {
 
   check_var_validity(dat, var_list, type = "num")
 

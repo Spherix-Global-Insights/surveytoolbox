@@ -32,12 +32,12 @@ check_seen_multi <- function(dat, var_list, condition = "TRUE") {
       if(!is.na(match(TRUE, soft_errors1))) {
 
         dat[var_list[i]] <- replace(dat[var_list[i]], soft_errors1, 0)
-        cat(paste("NAs recoded to 0 in", var_list[i], "where the condition is met.\n"))
+        cat(paste("NAs recoded to 0 in", var_list[i], "where", condition, "is met.\n"))
 
       } else if(!is.na(match(TRUE, soft_errors2))) {
 
         dat[var_list[i]] <- replace(dat[var_list[i]], soft_errors2, NA)
-        cat(paste("0s recoded to NA in", var_list[i], "where the condition is not met.\n"))
+        cat(paste("0s recoded to NA in", var_list[i], "where", condition, "is not met.\n"))
 
       } else {
 

@@ -1,11 +1,11 @@
-\name{check_percent}
-\alias{check_percent}
+\name{check_pct}
+\alias{check_pct}
 \title{Check Percentage}
 \description{
 Checks if any cases are above 100 and adjusts them if fix is TRUE.
 }
 \usage{
-check_percent(dat, var_list, fix = TRUE)
+check_pct(dat, var_list, fix = TRUE)
 }
 \arguments{
   \item{dat}{A data frame containing the variable(s) to be checked}
@@ -17,9 +17,9 @@ check_percent checks if any cases in the given variable(s) are above 100. If the
 }
 \examples{
 # Checks all cases in q1 and recodes any above 100
-check_percent(tempdat, "q1")
+check_pct(tempdat, "q1")
 
 # Check all cases in q1 and q2 and adds any above 100 to the error report
-#check_percent(tempdat, c("q1", "q2"), fix = FALSE)
+#check_pct(tempdat, c("q1", "q2"), fix = FALSE)
 
 }

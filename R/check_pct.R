@@ -2,7 +2,7 @@
 # Checks to make sure percent variables are not greater than 100
 # If they are and fix is on, then they will be adjusted according to common entry typos
 
-check_percent <- function(dat, var_list, fix = TRUE) {
+check_pct <- function(dat, var_list, fix = TRUE) {
 
   check_var_validity(dat, var_list, type = "num")
 

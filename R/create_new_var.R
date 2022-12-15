@@ -20,6 +20,8 @@ create_new_var <- function(dat, var_nam, var_lab = "New variable", val_lab = NUL
 
     names(dat)[names(dat) == "z"] <- var_nam
 
+    cat("A new variable with the name", var_nam, "has been created. \n")
+
     return(dat)
   }
 }
