@@ -3,16 +3,28 @@
 # The variable list should input with multiple variables, as a statement will be written for each one
 # The target must be a string or number. It cannot be a list of variables
 
-write_cond_statement <- function(dat, var_list, target, test = '==', operator = "|") {
+write_cond_statement <- function(var_list, target, test = '==', operator = "|") {
 
   statement <- ""
 
-  for(i in 1:length(var_list)) {
+  if(length(target) > 1 & length(target) != length(var_list)) {
 
-    statement <- paste(statement, var_list[i], test, target, operator, sep = " ")
+    warning("The number of target values does not equal the number of variables.")
   }
 
-  statement <- substr(statement, 2, nchar(statement) - (nchar(operator)+1))
+  j <- 1
+
+  for(i in 1:length(var_list)) {
+
+    statement <- paste(statement, var_list[i], test, target[j], operator, sep = " ")
+
+    if(length(target) > 1) {
+
+      j <- j + 1
+    }
+  }
+
+  statement <- substr(statement, 2, nchar(statement) - (nchar(operator)+1)) # removes excess operator
 
   return(statement)
 }

@@ -1,26 +1,26 @@
 
-uneven_bind <- function(dat, newcol, fill = NA) {
+uneven_bind <- function(dat1, dat2, fill = NA) {
 
-  dat_rows <- nrow(dat)
-  newcol_rows <- nrow(newcol)
+  dat1_rows <- nrow(dat1)
+  dat2_rows <- nrow(dat2)
 
-  if(newcol_rows > dat_rows) {
+  if(dat2_rows > dat1_rows) {
 
-    for(i in 1:(newcol_rows - dat_rows)) {
+    for(i in 1:(dat2_rows - dat1_rows)) {
 
-      dat <- rbind(dat, fill)
+      dat1 <- rbind(dat1, fill)
 
     }
 
-  } else if(newcol_rows < dat_rows) {
+  } else if(dat2_rows < dat1_rows) {
 
-    for(j in 1:(dat_rows - newcol_rows)) {
+    for(j in 1:(dat1_rows - dat2_rows)) {
 
-      newcol <- rbind(newcol, fill)
+      dat2 <- rbind(dat2, fill)
 
     }
 
   }
 
-  return(cbind(dat, newcol))
+  return(cbind(dat1, dat2))
 }

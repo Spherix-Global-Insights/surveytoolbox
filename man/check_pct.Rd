@@ -20,6 +20,6 @@ check_percent checks if any cases in the given variable(s) are above 100. If the
 check_pct(tempdat, "q1")
 
 # Check all cases in q1 and q2 and adds any above 100 to the error report
-#check_pct(tempdat, c("q1", "q2"), fix = FALSE)
+check_pct(tempdat, c("q1", "q2"), fix = FALSE)
 
 }
