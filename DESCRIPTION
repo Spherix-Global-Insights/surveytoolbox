@@ -1,13 +1,12 @@
 Package: surveytoolbox
 Type: Package
 Title: Tools for cleaning survey data
-Version: 1.4.0
+Version: 2.0.0
 Author: c(
     person("Andrew", "Donnachie", email="avdonnachie@gmail.com", role = c("aut", "cre"))
     )
-Maintainer: Andrew Donnachie <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: Andrew Donnachie <avdonnachie@gmail.com>
+Description: Streamlined functions and commands developed for cleaning survey data with labels attached. Designed specifically with .sav files in mind, but capable with any file format.
 Imports:
       sjlabelled,
       stringr

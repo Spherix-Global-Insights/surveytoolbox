@@ -2,9 +2,24 @@
 # Special case of the check_seen function built specifically for multi-selects
 # or other question types that have a tendency to not be backfilled with 0s
 
-check_seen_multi <- function(dat, var_list, condition = "TRUE") {
+check_seen_multi <- function(dat, var_list, condition = "TRUE", sl_flag = TRUE) {
 
   check_var_validity(dat, var_list, type = "num") #this function does not work with open-ended variables
+
+  if(sl_flag) { #flag the question for straight-line checking
+
+    if(max(na.omit(dat[var_list])) > 1) { #do not flag multi-select questions
+
+      if(!exists("sl_questions")) {
+
+        sl_questions <<- c(var_list, "/n")
+
+      } else {
+
+        sl_questions <<- c(sl_questions, var_list, "/n")
+      }
+    }
+  }
 
   bools <- eval_expr(dat, condition)
 
