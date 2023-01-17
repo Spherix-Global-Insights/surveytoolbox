@@ -15,7 +15,7 @@ find_var_lab(dat, keyword, omit = NULL, all_keyword = TRUE, all_omit = FALSE)
   \item{all_omit}{If TRUE, the function only excludes variables that contain ALL given omition keywords. If FALSE, the function excludes variables that contain ANY given omition keywords.}
 }
 \details{
-find_var_nam checks each variable label within a data frame for given keywords, excluding given omitions, and returns the names of those variables as a vector of strings. Multiple keywords and omitions may be input as a vector of strings. all_keyword and all_omit decides how multiple keywords are handled (see above).
+find_var_lab checks each variable label within a data frame for given keywords, excluding given omitions, and returns the names of those variables as a vector of strings. Multiple keywords and omitions may be input as a vector of strings. all_keyword and all_omit decides how multiple keywords are handled (see above).
 
 Please note, this function is much slower than find_var_name because it uses the get_label function on every variable and tends to check against larger strings. Also, just like find_var_name, this function is case sensitive.
 }

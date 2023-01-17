@@ -22,6 +22,6 @@ check_percent checks if any cases in the given variable(s) are below the minimum
 check_range(tempdat, "q1", fix = TRUE)
 
 # Check all cases in q1 and q2 and adds any that violate the range 5 to 450 to the error report
-check_pct(tempdat, c("q1", "q2"), 5, 450)
+check_range(tempdat, c("q1", "q2"), 5, 450)
 
 }
