@@ -1,11 +1,11 @@
-\name{find_var_nam}
-\alias{find_var_nam}
+\name{find_var_name}
+\alias{find_var_name}
 \title{Find Variable Name}
 \description{
 Searches data frame for variable names that match the given string(s).
 }
 \usage{
-find_var_nam(dat, keyword, omit = NULL, all_keyword = TRUE, all_omit = FALSE)
+find_var_name(dat, keyword, omit = NULL, all_keyword = TRUE, all_omit = FALSE)
 }
 \arguments{
   \item{dat}{A data frame containing the variable(s) to be searched}
@@ -19,12 +19,12 @@ find_var_nam checks each variable name within a data frame for given keywords, e
 }
 \examples{
 # Returns all variable names that contain "q1" but not "oe"
-find_var_nam(tempdat, "q1", "oe")
+find_var_name(tempdat, "q1", "oe")
 
 # Combines two functions to quickly check the multiple select question q1
-check_seen_multi(tempdat, find_var_nam(tempdat, "q1"))
+check_seen_multi(tempdat, find_var_name(tempdat, "q1"))
 
 # Returns all variable names that contain "q1" or "q2"
-find_var_nam(tempdat, c("q1", "q2"), all_keyword = FALSE)
+find_var_name(tempdat, c("q1", "q2"), all_keyword = FALSE)
 
 }
