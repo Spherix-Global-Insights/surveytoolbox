@@ -6,9 +6,15 @@ validity_analysis <- function(dat, id_var) {
   validity_sheet <- data.frame(dat[id_var])
 
 
+  if(!exists("sl_questions")) {
 
-  validity_sheet <- cbind(validity_sheet, straightline_analysis(dat, id_var)[-1:-id_l]) #straightline testing
-  cat("Straight-Line Analysis complete. \n")
+    cat("No questions flagged for a straight-line check. Skipping the Straight-Line Analysis... \n")
+
+  } else {
+
+    validity_sheet <- cbind(validity_sheet, straightline_analysis(dat, id_var)[-1:-id_l]) #straightline testing
+    cat("Straight-Line Analysis complete. \n")
+  }
 
 
 
