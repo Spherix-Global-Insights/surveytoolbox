@@ -3,10 +3,13 @@ check_range <- function(dat, var_list, min = 0, max = 100, fix = FALSE) {
 
   check_var_validity(dat, var_list, type = "num")
 
+  min_val <- determine_var(dat, min)[1]
+  max_val <- determine_var(dat, max)[1]
+
   for(i in 1:length(var_list)) {
 
-    errors_min <- dat[var_list[i]] < min
-    errors_max <- dat[var_list[i]] > max
+    errors_min <- dat[var_list[i]] < min_val
+    errors_max <- dat[var_list[i]] > max_val
 
     errors <- errors_min | errors_max
 
@@ -14,10 +17,12 @@ check_range <- function(dat, var_list, min = 0, max = 100, fix = FALSE) {
 
       if(fix) {
 
-        dat[errors_min, var_list[i]] <- max(dat[errors_min, var_list[i]], min)
-        dat[errors_max, var_list[i]] <- min(dat[errors_max, var_list[i]], max)
+        if(!is.na(match(TRUE, errors_min))) dat[errors_min, var_list[i]] <- max(dat[errors_min, var_list[i]], min_val[errors_min,])
+        if(!is.na(match(TRUE, errors_max))) dat[errors_max, var_list[i]] <- min(dat[errors_max, var_list[i]], max_val[errors_max,])
 
         cat("Cases where values are outside of range recoded in", var_list[i], "\n")
+
+        return(dat)
 
       } else {
 
@@ -30,7 +35,11 @@ check_range <- function(dat, var_list, min = 0, max = 100, fix = FALSE) {
     } else {
 
       cat("Test on", var_list[i], "complete, all values within range. \n")
+
+      if(fix) {
+
+        return(dat)
+      }
     }
   }
-  return(dat)
 }
