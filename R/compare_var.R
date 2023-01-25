@@ -15,6 +15,9 @@ compare_var <- function(dat, value1, value2, test = '==', condition = "TRUE") {
 
   bools <- eval_expr(dat, condition)
 
-  errors <- bools & !eval(parse(text=paste("val1", test, "val2")))
+  compares <- !eval(parse(text=paste("val1", test, "val2")))
+  compares[is.na(compares)] <- TRUE # we cannot compare NA values, so they are automatically flagged
+
+  errors <- bools & compares
   error_report(dat, cbind(errors1, errors2), errors)
 }

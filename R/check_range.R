@@ -11,6 +11,9 @@ check_range <- function(dat, var_list, min = 0, max = 100, fix = FALSE) {
     errors_min <- dat[var_list[i]] < min_val
     errors_max <- dat[var_list[i]] > max_val
 
+    errors_min[is.na(errors_min)] <- FALSE # we do not flag NAs here since we don't have an option for a condition
+    errors_max[is.na(errors_max)] <- FALSE
+
     errors <- errors_min | errors_max
 
     if(!is.na(match(TRUE, errors))) {

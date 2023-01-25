@@ -23,7 +23,7 @@ determine_var <- function(dat, var) {
 
       } else {                # Expression is evaluated
 
-        val <- eval_expr(dat, var)
+        val <- eval_expr(dat, var, fix_na = FALSE)
 
         errors <- val
 

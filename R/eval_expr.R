@@ -1,7 +1,7 @@
 
 # Evaluates the expression given as text, and returns the list of results
 
-eval_expr <- function(dat, expression) {
+eval_expr <- function(dat, expression, fix_na = TRUE) {
 
   if(expression == "TRUE") {
 
@@ -12,7 +12,7 @@ eval_expr <- function(dat, expression) {
 
     bools <- eval(parse(text=expression), dat)
 
-    bools[is.na(bools)] <- FALSE                #fix missing data
+    if(fix_na) bools[is.na(bools)] <- FALSE                #fix missing data
 
     if(length(bools) == 1) {                    #turns single value into full dataframe
 
