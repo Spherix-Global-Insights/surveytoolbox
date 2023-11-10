@@ -20,10 +20,12 @@ check_seen_multi <- function(dat, var_list, condition = "TRUE", sl_flag = TRUE) 
       }
     }
   }
-
-  bools <- eval_expr(dat, condition)
+  
+  cond_list <- determine_list(var_list, condition)
 
   for(i in 1:length(var_list)) {
+    
+    bools <- eval_expr(dat, cond_list[i])
 
     soft_errors1 <- bools & is.na(dat[var_list[i]]) #should have seen, has na
     soft_errors2 <- !bools & dat[var_list[i]] == 0 #should not have seen, has 0

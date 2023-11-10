@@ -43,12 +43,14 @@ error_report <- function(dat, variables, bools) {
         error_report_export <<- c(error_report_export, list(errors))
       }
       
-      sheet_name <- paste(names(variables)[-length(variables)], collapse = ".") # name the sheet for readability
+      function_call <- as.character(sys.calls()[[sys.nframe()-1]]) # gets the function that called this (along with its arguments)
       
-      if(nchar(sheet_name) > 20) { # sheet names can't be too long
+      sheet_name <- paste(function_call, collapse = ".") # name the sheet for readability
+      
+      if(nchar(sheet_name) > 26) { # sheet names can't be too long
         
-        sheet_name <- substr(sheet_name, 1, 20) 
-        sheet_name <- paste(sheet_name, "...", sep='')
+        sheet_name <- substr(sheet_name, 1, 26) 
+        sheet_name <- paste(sheet_name, ".", sep='')
       } 
         
       names(error_report_export)[length(error_report_export)] <<- sheet_name

@@ -7,9 +7,11 @@ recode <- function(dat, var_list, target, condition = "TRUE") {
 
   targ_val <- determine_var(dat, target)[1]
 
-  bools <- eval_expr(dat, condition)
+  cond_list <- determine_list(var_list, condition)
 
   for(i in 1:length(var_list)) {
+    
+    bools <- eval_expr(dat, cond_list[i])
 
     dat[bools==TRUE, var_list[i]] <- targ_val[bools==TRUE,]
   }

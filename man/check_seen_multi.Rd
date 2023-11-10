@@ -10,7 +10,7 @@ check_seen_multi(dat, var_list, condition = "TRUE", sl_flag = TRUE)
 \arguments{
   \item{dat}{A data frame containing the variable(s) to be checked}
   \item{var_list}{A vector of strings containing the variable names of the multiple-select question to be checked}
-  \item{condition}{An expression in the form of a string used to determine when the question should have been seen}
+  \item{condition}{An expression or vector of expressions in the form of string(s) used to determine when the question should have been seen}
   \item{sl_flag}{Determines whether the question will be marked for a straight-line check or not}
 }
 \details{
@@ -25,9 +25,12 @@ Also, calling this function on a question will mark that question for a straight
 }
 \examples{
 # Checks a multiple-select question that should be seen by all respondents
-check_seen_multi(tempdat, c("q1a1", "q1a2", "q1a3"))
+tempdat <- check_seen_multi(tempdat, c("q1a1", "q1a2", "q1a3"))
 
 # Checks a multiple-select question that should only be seen when the respondent is over or equal to the age of 18
-check_seen_multi(tempdat, c("q1a1", "q1a2", "q1a3"), "age >= 18")
+tempdat <- check_seen_multi(tempdat, c("q1a1", "q1a2", "q1a3"), "age >= 18")
+
+# Checks a multiple-select question with different conditions for each option
+tempdat <- check_seen_multi(tempdat, c("q1a1", "q1a2", "q1a3"), c("age >= 18", "age >= 21", "age >= 60"))
 
 }

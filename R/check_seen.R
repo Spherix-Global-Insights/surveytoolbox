@@ -8,9 +8,11 @@ check_seen <- function(dat, var_list, condition = "TRUE") {
 
   check_var_validity(dat, var_list)
 
-  bools <- eval_expr(dat, condition)
+  cond_list <- determine_list(var_list, condition)
 
   for(i in 1:length(var_list)) {
+    
+    bools <- eval_expr(dat, cond_list[i])
 
     if(is.numeric(dat[var_list[i]][,1])) { #handles numeric variables (most common)
 

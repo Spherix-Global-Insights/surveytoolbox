@@ -1,5 +1,6 @@
 
-# Determines what should be done with the variable for calculation purposes
+# Determines what should be done with the input for calculation purposes
+# This enables functions to take on multiple types of inputs for variables, instead of just a single variable
 
 determine_var <- function(dat, var) {
 
