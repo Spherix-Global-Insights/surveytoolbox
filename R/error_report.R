@@ -36,8 +36,7 @@ error_report <- function(dat, variables, bools) {
       err_col <- as.data.frame(matrix(NA, ncol = 1, nrow = nrow(dat)))
       err_col <- replace(err_col, bools, "ERROR")
 
-      function_call <- as.character(sys.calls()[[sys.nframe()-1]]) # gets the function that called this (along with its arguments)
-      colnames(err_col) <- paste(function_call, collapse = ".")
+      colnames(err_col) <- sys.calls()[1] # gets the function that called this (along with its arguments)
 
       errors <- cbind(err_col, errors)
 
@@ -55,12 +54,11 @@ error_report <- function(dat, variables, bools) {
       }
 
       # Handles naming
-      sheet_name <- paste(variables, collapse = ".") # name the sheet for readability
+      sheet_name <- paste(names(variables)[-length(variables)], collapse = ".") # name the sheet for readability
 
       if(nchar(sheet_name) > 26) { # sheet names can't be too long
 
         sheet_name <- substr(sheet_name, 1, 26)
-        sheet_name <- paste(sheet_name, ".", sep='')
       }
 
       names(error_report_export)[length(error_report_export)] <<- sheet_name

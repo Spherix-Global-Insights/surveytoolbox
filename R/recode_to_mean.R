@@ -11,7 +11,9 @@ recode_to_mean <- function(dat, var_list, condition) {
 
     bools <- eval_expr(dat, cond_list[i])
 
-    dat[bools, var_list[i]] <- mean(dat[!bools, var_list[i]])
+    l <- nrow(dat[bools==TRUE, var_list[i]])
+
+    dat[bools==TRUE, var_list[i]] <- array(mean(dat[bools==FALSE, var_list[i]]), l)
   }
 
   cat("All cases in", var_list, "recoded to the mean where", condition, "is true. \n")
