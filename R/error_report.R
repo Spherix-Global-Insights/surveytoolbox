@@ -37,7 +37,7 @@ error_report <- function(dat, variables, bools) {
       err_col <- replace(err_col, bools, "ERROR")
 
       function_call <- as.character(sys.calls()[[sys.nframe()-1]]) # gets the function that called this (along with its arguments)
-      colnames(err_col) <- function_call
+      colnames(err_col) <- paste(function_call, collapse = ".")
 
       errors <- cbind(err_col, errors)
 
