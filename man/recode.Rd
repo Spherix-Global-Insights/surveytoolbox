@@ -11,7 +11,7 @@ recode(dat, var_list, target, condition = "TRUE")
   \item{dat}{A data frame containing the variable(s) to be recoded}
   \item{var_list}{A string or vector of strings containing the variable name(s) to be recoded}
   \item{target}{A string, a vector of strings containing variable names, a number, or an expression that the variable(s) will be recoded to}
-  \item{condition}{An expression or vector of expressions in the form of string(s) used to determine when the question should have been seen}
+  \item{condition}{An expression or vector of expressions in the form of string(s) used to determine which values will be recoded}
 }
 \details{
 recode sets the cases of the given variable(s) to a new value given as the target and returns the data with the variable(s) recoded. If a condition is given, only the cases where the condition is met will be recoded.

@@ -30,35 +30,47 @@ error_report <- function(dat, variables, bools) {
       names(errors)[-length(names(errors))] <- paste(names(errors)[-length(names(errors))], get_label(dat[names(errors)[-length(names(errors))]]), sep = " - ") # attach the question label to the name of each column for readability
     }
 
-
-    errors <- errors[bools==TRUE,]
-
     if(error_export) {
+
+      # Error identification column
+      err_col <- as.data.frame(matrix(NA, ncol = 1, nrow = nrow(dat)))
+      err_col <- replace(err_col, bools, "ERROR")
+
+      function_call <- as.character(sys.calls()[[sys.nframe()-1]]) # gets the function that called this (along with its arguments)
+      colnames(err_col) <- function_call
+
+      errors <- cbind(err_col, errors)
+
 
       # Create report if it doesn't exist
       # Syntax note: <<- assigns the result to the global environment, instead of the function environment.
       if(!exists("error_report_export")) {
+
         error_report_export <<- list(errors)
+
       } else {
+
         error_report_export <<- c(error_report_export, list(errors))
+
       }
-      
-      function_call <- as.character(sys.calls()[[sys.nframe()-1]]) # gets the function that called this (along with its arguments)
-      
-      sheet_name <- paste(function_call, collapse = ".") # name the sheet for readability
-      
+
+      # Handles naming
+      sheet_name <- paste(variables, collapse = ".") # name the sheet for readability
+
       if(nchar(sheet_name) > 26) { # sheet names can't be too long
-        
-        sheet_name <- substr(sheet_name, 1, 26) 
+
+        sheet_name <- substr(sheet_name, 1, 26)
         sheet_name <- paste(sheet_name, ".", sep='')
-      } 
-        
+      }
+
       names(error_report_export)[length(error_report_export)] <<- sheet_name
 
       names(error_report_export) <<- make.names(names(error_report_export), unique = TRUE) # fixes any duplicate names (necessary for excel exporting)
 
 
-    } else {
+    } else { # export preference is off
+
+      errors <- errors[bools==TRUE,] # only print errors
 
       print(errors)
     }
