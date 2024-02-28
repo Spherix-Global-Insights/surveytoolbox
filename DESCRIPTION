@@ -1,7 +1,7 @@
 Package: surveytoolbox
 Type: Package
 Title: Tools for cleaning survey data
-Version: 2024.02.21
+Version: 2024.02.28
 Author: c(
     person("Andrew", "Donnachie", email="avdonnachie@gmail.com", role = c("aut", "cre"))
     )

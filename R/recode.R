@@ -13,7 +13,7 @@ recode <- function(dat, var_list, target, condition = "TRUE") {
 
     bools <- eval_expr(dat, cond_list[i])
 
-    if(is.na(match(TRUE, bools))) {
+    if(is.na(match(TRUE, unlist(bools)))) {
 
       message("No cases in ", var_list[i], " met the condition ", cond_list[i], " to be recoded.")
 
