@@ -1,6 +1,9 @@
 # surveytoolbox
 
 ## Update Notes
+### 2024.06.27
+- stack_loops() now re-applies labels so no metadata is lost
+
 ### 2024.02.21
 - Added between() function to easily grab variables between two variables
 - Added recode_to_mean() function to change values to the mean of the others
